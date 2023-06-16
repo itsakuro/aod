@@ -6,3 +6,8 @@
   padding: 0;
   font-family: "Google Sans", "Product Sans", "Roboto", Helvetica, Arial, sans-serif;
 }
+
+body {
+  color: #E8E2D9;
+  background: #000000;
+}
