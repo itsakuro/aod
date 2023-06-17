@@ -82,4 +82,4 @@ setInterval(() => {
     timeLineTwoText.innerHTML = "Past";
     timeLineThreeText.innerHTML = hourToText();
   }
-}, 1000);
+}, 200);
