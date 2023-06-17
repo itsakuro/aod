@@ -77,5 +77,9 @@ setInterval(() => {
     timeLineOneText.innerHTML = hourToText();
     timeLineTwoText.innerHTML = "Oh";
     timeLineThreeText.innerHTML = getMinutesText(d.getMinutes());
+  } else if (d.getMinutes() >= 10 && d.getMinutes() <= 20) {
+    timeLineOneText.innerHTML = getMinutesText(d.getMinutes());
+    timeLineTwoText.innerHTML = "Past";
+    timeLineThreeText.innerHTML = hourToText();
   }
 }, 1000);
