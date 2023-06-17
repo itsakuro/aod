@@ -81,5 +81,16 @@ setInterval(() => {
     timeLineOneText.innerHTML = getMinutesText(d.getMinutes());
     timeLineTwoText.innerHTML = "Past";
     timeLineThreeText.innerHTML = hourToText();
+  } else if (d.getMinutes() > 20 && d.getMinutes() < 30) {
+    var string = getMinutesText(d.getMinutes());
+    var words = string.split(" ");
+    
+    timeLineOneText.innerHTML = hourToText();
+    timeLineTwoText.innerHTML = words[0];
+    timeLineThreeText.innerHTML = words[1];
+  } else if (d.getMinutes() == 30) {
+    timeLineOneText.innerHTML = "Half";
+    timeLineTwoText.innerHTML = "Past";
+    timeLineThreeText.innerHTML = hourToText();
   }
 }, 200);
