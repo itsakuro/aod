@@ -1,5 +1,6 @@
 const timeLineOneText = document.getElementById("timeLineOneText");
 const timeLineTwoText = document.getElementById("timeLineTwoText");
+const timeLineThreeText = document.getElementById("timeLineThreeText");
 
 setInterval(() => {
   const d = new Date();
@@ -50,6 +51,13 @@ setInterval(() => {
     }
   }
   
-  timeLineOneText.innerHTML = hourToText();
-  timeLineTwoText.innerHTML = get12Hours();
+  if (d.getMinutes() > 0 && d.getMinutes() < 10) {
+    timeLineOneText.innerHTML = hourToText();
+    timeLineTwoText.innerHTML = "Oh";
+    timeLineThreeText.innerHTML = "Clock";
+  } else if (d.getMinutes() > 0 && d.getMinutes() < 10) {
+    timeLineOneText.innerHTML = hourToText();
+    timeLineTwoText.innerHTML = "Oh";
+    timeLineThreeText.innerHTML = hourToText();
+  }
 }, 1000);
