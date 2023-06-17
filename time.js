@@ -51,13 +51,31 @@ setInterval(() => {
     }
   }
   
-  if (d.getMinutes() > 0 && d.getMinutes() < 10) {
+  function getMinutesText(minutes) {
+    const singleDigits = ['Zero', 'One', 'Two', 'Three', 'Four', 'Five', 'Six', 'Seven', 'Eight', 'Nine'];
+    const tensDigits = ['Ten', 'Twenty', 'Thirty', 'Forty', 'Fifty'];
+  
+    if (minutes < 10) {
+      return singleDigits[minutes];
+    } else if (minutes < 20) {
+      const teenDigits = ['Ten', 'Eleven', 'Twelve', 'Thirteen', 'Fourteen', 'Fifteen', 'Sixteen', 'Seventeen', 'Eighteen', 'Nineteen'];
+      return teenDigits[minutes - 10];
+    } else if (minutes % 10 === 0) {
+      return tensDigits[Math.floor(minutes / 10) - 1];
+    } else {
+      const tensDigit = tensDigits[Math.floor(minutes / 10) - 1];
+      const singleDigit = singleDigits[minutes % 10];
+      return `${tensDigit} ${singleDigit}`;
+    }
+  }
+  
+  if (d.getMinutes() == 0) {
     timeLineOneText.innerHTML = hourToText();
     timeLineTwoText.innerHTML = "Oh";
     timeLineThreeText.innerHTML = "Clock";
   } else if (d.getMinutes() > 0 && d.getMinutes() < 10) {
     timeLineOneText.innerHTML = hourToText();
     timeLineTwoText.innerHTML = "Oh";
-    timeLineThreeText.innerHTML = hourToText();
+    timeLineThreeText.innerHTML = getMinutesText(d.getMinutes());
   }
 }, 1000);
